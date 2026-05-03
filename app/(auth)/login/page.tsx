@@ -147,15 +147,18 @@ export default function LoginPage() {
         }
         @media (max-width: 768px) {
           .left-panel { display: none !important; }
-          .right-panel { border-radius: 20px !important; border-left: 1px solid rgba(255,255,255,0.06) !important; }
-          .container { width: 100% !important; max-width: 440px !important; }
+          .right-panel {
+            border-radius: 20px !important;
+            border-left: 1px solid rgba(255,255,255,0.06) !important;
+          }
+          .login-container { width: 100% !important; max-width: 440px !important; }
         }
       `}</style>
 
       <div className="bg-grid" />
       <div className="bg-glow" />
 
-      <div className="container" style={{
+      <div className="login-container" style={{
         display: 'flex',
         width: '900px',
         minHeight: '560px',
@@ -180,41 +183,95 @@ export default function LoginPage() {
           overflow: 'hidden',
           position: 'relative',
         }}>
-          {/* Logo */}
-          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '22px', fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '8px', height: '8px', background: '#6366f1', borderRadius: '50%', boxShadow: '0 0 12px rgba(99,102,241,0.8)', animation: 'pulse 2s infinite' }} />
+          <div style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: '22px',
+            fontWeight: 700,
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+          }}>
+            <div style={{
+              width: '8px',
+              height: '8px',
+              background: '#6366f1',
+              borderRadius: '50%',
+              boxShadow: '0 0 12px rgba(99,102,241,0.8)',
+              animation: 'pulse 2s infinite',
+            }} />
             Agendei.app
           </div>
 
-          {/* Conteudo central */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <div>
-              <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: '32px', fontWeight: 700, color: '#fff', lineHeight: 1.2 }}>
-                Gerencie seu<br />salão <span style={{ color: '#6366f1' }}>sem stress</span>
+              <h2 style={{
+                fontFamily: "'Syne', sans-serif",
+                fontSize: '32px',
+                fontWeight: 700,
+                color: '#fff',
+                lineHeight: 1.2,
+              }}>
+                Gerencie seu<br />
+                salao <span style={{ color: '#6366f1' }}>sem stress</span>
               </h2>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginTop: '12px', maxWidth: '280px' }}>
-                Agendamentos automáticos, confirmação por WhatsApp e painel completo.
+              <p style={{
+                fontSize: '14px',
+                color: 'rgba(255,255,255,0.4)',
+                lineHeight: 1.7,
+                marginTop: '12px',
+                maxWidth: '280px',
+              }}>
+                Agendamentos automaticos, confirmacao por WhatsApp e painel completo.
               </p>
             </div>
 
             <div style={{ display: 'flex', gap: '28px' }}>
-              {[['2.4k+', 'Salões ativos'], ['98%', 'Satisfação'], ['R$0', 'Para começar']].map(([num, label]) => (
+              {[['2.4k+', 'Saloes ativos'], ['98%', 'Satisfacao'], ['R$0', 'Para comecar']].map(([num, label]) => (
                 <div key={label}>
-                  <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '22px', fontWeight: 700, color: '#fff' }}>{num}</div>
-                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{label}</div>
+                  <div style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontSize: '22px',
+                    fontWeight: 700,
+                    color: '#fff',
+                  }}>{num}</div>
+                  <div style={{
+                    fontSize: '11px',
+                    color: 'rgba(255,255,255,0.3)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                  }}>{label}</div>
                 </div>
               ))}
             </div>
 
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '16px 20px' }}>
-              <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, fontStyle: 'italic' }}>
+            <div style={{
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.07)',
+              borderRadius: '12px',
+              padding: '16px 20px',
+            }}>
+              <p style={{
+                fontSize: '13px',
+                color: 'rgba(255,255,255,0.55)',
+                lineHeight: 1.6,
+                fontStyle: 'italic',
+              }}>
                 "Reduzi 3 horas de WhatsApp por dia. Meus clientes amam o link de agendamento."
               </p>
-              <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.25)', marginTop: '10px' }}>— Ana Silva, Studio Ana • São Paulo</p>
+              <p style={{
+                fontSize: '12px',
+                color: 'rgba(255,255,255,0.25)',
+                marginTop: '10px',
+              }}>
+                — Ana Silva, Studio Ana • Sao Paulo
+              </p>
             </div>
           </div>
 
-          <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.15)' }}>© 2026 Agendei.app</div>
+          <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.15)' }}>
+            2026 Agendei.app
+          </div>
         </div>
 
         {/* Painel direito */}
@@ -230,22 +287,45 @@ export default function LoginPage() {
           borderLeft: '1px solid rgba(99,102,241,0.1)',
         }}>
           <div style={{ marginBottom: '32px' }}>
-            <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: '22px', fontWeight: 600, color: '#fff', marginBottom: '6px' }}>
+            <h1 style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: '22px',
+              fontWeight: 600,
+              color: '#fff',
+              marginBottom: '6px',
+            }}>
               Bem-vinda de volta
             </h1>
-            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)' }}>Entre na sua conta para continuar</p>
+            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)' }}>
+              Entre na sua conta para continuar
+            </p>
           </div>
 
           {errors.general && (
-            <div style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '10px', padding: '12px 16px', marginBottom: '16px', fontSize: '13px', color: '#f87171' }}>
+            <div style={{
+              background: 'rgba(239,68,68,0.1)',
+              border: '1px solid rgba(239,68,68,0.3)',
+              borderRadius: '10px',
+              padding: '12px 16px',
+              marginBottom: '16px',
+              fontSize: '13px',
+              color: '#f87171',
+            }}>
               {errors.general}
             </div>
           )}
 
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {/* Email */}
             <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 500, color: 'rgba(255,255,255,0.4)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <label style={{
+                display: 'block',
+                fontSize: '11px',
+                fontWeight: 500,
+                color: 'rgba(255,255,255,0.4)',
+                marginBottom: '8px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+              }}>
                 E-mail
               </label>
               <input
@@ -253,14 +333,25 @@ export default function LoginPage() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="seu@email.com"
-                className={`login-input${errors.email ? ' error-input' : ''}`}
+                className={'login-input' + (errors.email ? ' error-input' : '')}
               />
-              {errors.email && <p style={{ fontSize: '11px', color: '#f87171', marginTop: '5px' }}>{errors.email}</p>}
+              {errors.email && (
+                <p style={{ fontSize: '11px', color: '#f87171', marginTop: '5px' }}>
+                  {errors.email}
+                </p>
+              )}
             </div>
 
-            {/* Senha */}
             <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 500, color: 'rgba(255,255,255,0.4)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <label style={{
+                display: 'block',
+                fontSize: '11px',
+                fontWeight: 500,
+                color: 'rgba(255,255,255,0.4)',
+                marginBottom: '8px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+              }}>
                 Senha
               </label>
               <div style={{ position: 'relative' }}>
@@ -269,22 +360,41 @@ export default function LoginPage() {
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className={`login-input${errors.password ? ' error-input' : ''}`}
+                  className={'login-input' + (errors.password ? ' error-input' : '')}
                   style={{ paddingRight: '80px' }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  style={{ position: 'absolute', right: '14px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'rgba(255,255,255,0.3)', cursor: 'pointer', fontSize: '12px', fontFamily: 'inherit' }}
+                  style={{
+                    position: 'absolute',
+                    right: '14px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'none',
+                    border: 'none',
+                    color: 'rgba(255,255,255,0.3)',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    fontFamily: 'inherit',
+                  }}
                 >
                   {showPassword ? 'ocultar' : 'mostrar'}
                 </button>
               </div>
-              {errors.password && <p style={{ fontSize: '11px', color: '#f87171', marginTop: '5px' }}>{errors.password}</p>}
+              {errors.password && (
+                <p style={{ fontSize: '11px', color: '#f87171', marginTop: '5px' }}>
+                  {errors.password}
+                </p>
+              )}
             </div>
 
             <div style={{ textAlign: 'right', marginTop: '-8px' }}>
-              <Link href="/forgot-password" style={{ fontSize: '12px', color: 'rgba(99,102,241,0.7)', textDecoration: 'none' }}>
+              <Link href="/forgot-password" style={{
+                fontSize: '12px',
+                color: 'rgba(99,102,241,0.7)',
+                textDecoration: 'none',
+              }}>
                 Esqueceu a senha?
               </Link>
             </div>
@@ -298,15 +408,26 @@ export default function LoginPage() {
               ) : 'Entrar na conta'}
             </button>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '4px 0' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              margin: '4px 0',
+            }}>
               <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
-              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)' }}>não tem conta?</span>
+              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)' }}>
+                nao tem conta?
+              </span>
               <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
             </div>
 
             <div style={{ textAlign: 'center', fontSize: '13px', color: 'rgba(255,255,255,0.3)' }}>
-              <Link href="/register" style={{ color: '#6366f1', textDecoration: 'none', fontWeight: 500 }}>
-                Criar conta grátis →
+              <Link href="/register" style={{
+                color: '#6366f1',
+                textDecoration: 'none',
+                fontWeight: 500,
+              }}>
+                Criar conta gratis
               </Link>
             </div>
           </form>
