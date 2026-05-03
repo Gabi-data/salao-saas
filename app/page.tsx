@@ -9,7 +9,7 @@ export default function HomePage() {
       fontFamily: "'DM Sans', sans-serif",
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(24px); }
           to { opacity: 1; transform: translateY(0); }
@@ -19,11 +19,6 @@ export default function HomePage() {
           50% { transform: scale(1.3); opacity: 0.7; }
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
         
         .bg-grid {
           position: fixed;
@@ -245,7 +240,7 @@ export default function HomePage() {
             <span className="gradient-text">pelo WhatsApp</span>
           </h1>
 
-          <ul style={{
+          <div style={{
             maxWidth: '480px',
             margin: '0 auto 40px',
             textAlign: 'left',
@@ -258,16 +253,16 @@ export default function HomePage() {
               '✅ Você recebe confirmação automática',
               '✅ Vê tudo organizado no painel sem perder tempo',
             ].map((item, idx) => (
-              <li key={idx} style={{
+              <div key={idx} style={{
                 fontSize: '15px',
                 color: 'rgba(255,255,255,0.7)',
                 padding: '10px 0',
                 borderBottom: '1px solid rgba(255,255,255,0.04)',
               }}>
                 {item}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
 
           <div style={{
             display: 'flex',
@@ -286,7 +281,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-         <p style={{
+          <p style={{
             fontSize: '13px',
             color: 'rgba(255,255,255,0.25)',
             marginTop: '24px',
@@ -295,12 +290,6 @@ export default function HomePage() {
             animationFillMode: 'forwards',
           }}>
             Sem cartão de crédito. Cancele quando quiser.
-          </p>
-
-          <p style={{marginTop:'16px'}}>
-            <a href="/pedro-barber" target="_blank" style={{fontSize:'13px',color:'rgba(99,102,241,0.7)',textDecoration:'none'}}>
-              Ver demo ao vivo — pagina de agendamento do cliente
-            </a>
           </p>
         </div>
       </section>
@@ -326,7 +315,7 @@ export default function HomePage() {
                 color: '#f87171',
                 marginBottom: '20px',
               }}>Antes do Agendei</h3>
-              <ul style={{ spaceBetween: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {[
                   'Horas respondendo WhatsApp todo dia',
                   'Clientes faltando sem avisar',
@@ -334,7 +323,7 @@ export default function HomePage() {
                   'Horários esquecidos ou duplicados',
                   'Sem tempo para focar nos clientes',
                 ].map(item => (
-                  <li key={item} style={{
+                  <div key={item} style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
@@ -345,9 +334,9 @@ export default function HomePage() {
                   }}>
                     <span style={{ color: '#f87171', fontSize: '14px' }}>✗</span>
                     <span>{item}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div style={{
@@ -363,7 +352,7 @@ export default function HomePage() {
                 color: '#4ade80',
                 marginBottom: '20px',
               }}>Com o Agendei</h3>
-              <ul>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {[
                   'Cliente agenda sozinho pelo link',
                   'Confirmação automática no WhatsApp',
@@ -371,7 +360,7 @@ export default function HomePage() {
                   'Zero conflito de horários',
                   'Mais tempo para atender bem',
                 ].map(item => (
-                  <li key={item} style={{
+                  <div key={item} style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
@@ -382,9 +371,9 @@ export default function HomePage() {
                   }}>
                     <span style={{ color: '#4ade80', fontSize: '14px' }}>✓</span>
                     <span>{item}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -501,21 +490,20 @@ export default function HomePage() {
                 color: '#fff',
                 marginBottom: '24px',
               }}>R$0</div>
-              <ul style={{ marginBottom: '32px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
                 {['1 profissional', 'Até 30 agendamentos/mês', 'Página pública'].map(item => (
-                  <li key={item} style={{
+                  <div key={item} style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
-                    padding: '8px 0',
                     fontSize: '13px',
                     color: 'rgba(255,255,255,0.5)',
                   }}>
                     <span style={{ color: '#4ade80' }}>✓</span> {item}
-                  </li>
+                  </div>
                 ))}
-              </ul>
-              <Link href="/register" className="btn-outline" style={{ width: '100%', textAlign: 'center', padding: '12px' }}>
+              </div>
+              <Link href="/register" className="btn-outline" style={{ width: '100%', textAlign: 'center', padding: '12px', display: 'block' }}>
                 Começar grátis
               </Link>
             </div>
@@ -556,20 +544,19 @@ export default function HomePage() {
                 color: '#fff',
                 marginBottom: '24px',
               }}>R$59</div>
-              <ul style={{ marginBottom: '32px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
                 {['Profissionais ilimitados', 'Agendamentos ilimitados', 'Confirmação WhatsApp', 'Lembretes automáticos'].map(item => (
-                  <li key={item} style={{
+                  <div key={item} style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
-                    padding: '8px 0',
                     fontSize: '13px',
                     color: 'rgba(255,255,255,0.9)',
                   }}>
                     <span style={{ color: '#fbbf24' }}>✓</span> {item}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
               <Link href="/register" style={{
                 width: '100%',
                 textAlign: 'center',
@@ -578,7 +565,7 @@ export default function HomePage() {
                 color: '#6366f1',
                 borderRadius: '10px',
                 textDecoration: 'none',
-                display: 'inline-block',
+                display: 'block',
                 fontWeight: 600,
                 fontFamily: "'Syne', sans-serif",
                 fontSize: '14px',
