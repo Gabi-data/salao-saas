@@ -1,30 +1,38 @@
-# Agendei.app — SaaS de Agendamento para Salões
+# Agendei.app
 
-Sistema completo de agendamento online desenvolvido do zero.
+Sistema de agendamento pra salões de beleza e barbearias.
 
-## Demo ao vivo
-🔗 [agendei.vercel.app](https://agendei.vercel.app)
+Demo: [agendei-meusalao.vercel.app](https://agendei-meusalao.vercel.app)
+
+---
+
+## O que funciona
+
+- Dono do salão se cadastra e faz login
+- Cada salão tem um link público tipo `site.com/meu-salao`
+- Cliente escolhe serviço, horário e agendar pelo link
+- Dono e cliente recebem confirmação no WhatsApp
+- Painel pra ver agendamentos do dia
+- Dá pra cancelar agendamento se precisar
+- Serviços e horários são configuráveis
+
+---
 
 ## Tecnologias
-- Next.js 16 + TypeScript
-- Supabase (PostgreSQL + Auth)
-- Tailwind CSS
-- Z-API (WhatsApp)
-- Vercel (Deploy)
 
-## Funcionalidades
-- Cadastro e login de donos de salão
-- Página pública de agendamento por link único
-- Confirmação automática por WhatsApp
-- Dashboard com agenda do dia
-- Gerenciamento de serviços e horários
-- Sistema de cancelamento de agendamentos
+| O que | Por que |
+|-------|---------|
+| Next.js 16 | Pra rodar o frontend e as rotas |
+| Supabase | Banco + autenticação (não quis fazer na mão) |
+| Tailwind CSS | Pra estilizar sem perder tempo |
+| Z-API | Envio de mensagens pro WhatsApp |
+| Vercel | Deploy grátis que funciona |
 
-## Rodando localmente
+---
+
+## Como rodar local
+
 ```bash
 git clone https://github.com/Gabi-data/salao-saas
 cd salao-saas
 npm install
-# configure o .env.local com suas chaves Supabase
-npm run dev
-```
