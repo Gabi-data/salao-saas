@@ -297,27 +297,11 @@ export default function HomePage() {
             Sem cartão de crédito. Cancele quando quiser.
           </p>
 
-          <div style={{
-            marginTop: '16px',
-            animation: 'fadeSlideUp 0.6s ease-out 0.5s forwards',
-            opacity: 0,
-            animationFillMode: 'forwards',
-          }}>
-            
-              href="/pedro-barber"
-              target="_blank"
-              style={{
-                fontSize: '13px',
-                color: 'rgba(99,102,241,0.7)',
-                textDecoration: 'none',
-                borderBottom: '1px solid rgba(99,102,241,0.3)',
-                paddingBottom: '2px',
-                transition: 'all 0.2s',
-              }}
-            >
-              Ver demo ao vivo — pagina de agendamento do cliente →
+          <p style={{marginTop:'16px'}}>
+            <a href="/pedro-barber" target="_blank" style={{fontSize:'13px',color:'rgba(99,102,241,0.7)',textDecoration:'none'}}>
+              Ver demo ao vivo — pagina de agendamento do cliente
             </a>
-          </div>
+          </p>
         </div>
       </section>
 
