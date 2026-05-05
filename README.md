@@ -9,7 +9,7 @@ Demo: [agendei-meusalao.vercel.app](https://agendei-meusalao.vercel.app)
 ## O que funciona
 
 - Dono do salão se cadastra e faz login
-- Cada salão tem um link público tipo `site.com/meu-salao`
+- Cada salão tem um link público tipo `site.com/Barbaria_um`
 - Cliente escolhe serviço, horário e agendar pelo link
 - Dono e cliente recebem confirmação no WhatsApp
 - Painel pra ver agendamentos do dia
@@ -23,7 +23,7 @@ Demo: [agendei-meusalao.vercel.app](https://agendei-meusalao.vercel.app)
 | O que | Por que |
 |-------|---------|
 | Next.js 16 | Pra rodar o frontend e as rotas |
-| Supabase | Banco + autenticação (não quis fazer na mão) |
+| Supabase | Banco + autenticação |
 | Tailwind CSS | Pra estilizar sem perder tempo |
 | Z-API | Envio de mensagens pro WhatsApp |
 | Vercel | Deploy grátis que funciona |
