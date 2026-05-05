@@ -1,6 +1,6 @@
 # Agendei.app
 
-Sistema de agendamento pra salões de beleza e barbearias.
+Sistema de agendamento pra donos de salões de beleza e barbearias.
 
 Demo: [agendei-meusalao.vercel.app](https://agendei-meusalao.vercel.app)
 
