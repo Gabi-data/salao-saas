@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-client'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
@@ -27,25 +27,38 @@ export default function LoginPage() {
   }
 
   async function handleLogin(e: React.FormEvent) {
-    e.preventDefault()
-    if (!validate()) return
-    setLoading(true)
-    setErrors({ email: '', password: '', general: '' })
+  e.preventDefault()
+  if (!validate()) return
+  setLoading(true)
+  setErrors({ email: '', password: '', general: '' })
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
 
-    if (error) {
-      setErrors(prev => ({
-        ...prev,
-        general: error.message.includes('Invalid')
-          ? 'E-mail ou senha incorretos'
-          : 'Erro ao entrar. Tente novamente.'
-      }))
-      setLoading(false)
-    } else {
-      router.push('/dashboard')
+    // Verificar se a resposta é JSON antes de tentar parsear
+    const contentType = res.headers.get('content-type')
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error('Resposta inválida do servidor')
     }
+
+    const data = await res.json()
+
+    if (res.ok) {
+      router.push('/dashboard')
+    } else {
+      setErrors(prev => ({ ...prev, general: data.error || 'Erro ao fazer login' }))
+    }
+  } catch (error) {
+    console.error('Login fetch error:', error)
+    setErrors(prev => ({ ...prev, general: 'Erro de conexão com o servidor' }))
+  } finally {
+    setLoading(false)
   }
+}
 
   return (
     <div style={{

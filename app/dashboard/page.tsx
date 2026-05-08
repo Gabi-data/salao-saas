@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
@@ -12,37 +11,49 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function load() {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (!user) { router.push('/login'); return }
-
-      const { data: salonData } = await supabase
-        .from('salons')
-        .select('*')
-        .eq('user_id', user.id)
-        .single()
-
-      setSalon(salonData)
-
-      if (salonData) {
-        const today = new Date().toISOString().split('T')[0]
-        const { data: appts } = await supabase
-          .from('appointments')
-          .select('*, services(name, price)')
-          .eq('salon_id', salonData.id)
-          .gte('scheduled_at', today + 'T00:00:00')
-          .lte('scheduled_at', today + 'T23:59:59')
-          .order('scheduled_at')
-        setAppointments(appts || [])
+  try {
+    // Buscar dados do salão via API
+    const salonRes = await fetch('/api/salons/me', {
+      credentials: 'include'
+    })
+    
+    if (!salonRes.ok) {
+      if (salonRes.status === 401) {
+        router.push('/login')
+        return
       }
+      setSalon(null)
       setLoading(false)
+      return
     }
+    
+    const { salon: salonData } = await salonRes.json()
+    setSalon(salonData)
+
+    if (salonData) {
+      const today = new Date().toISOString().split('T')[0]
+      const appointmentsRes = await fetch(`/api/appointments?salon_id=${salonData.id}&date=${today}`, {
+        credentials: 'include'
+      })
+      
+      if (appointmentsRes.ok) {
+        const appointmentsData = await appointmentsRes.json()
+        setAppointments(appointmentsData)
+      }
+    }
+  } catch (error) {
+    console.error('Error loading dashboard:', error)
+  } finally {
+    setLoading(false)
+  }
+}
     load()
   }, [])
 
   async function handleLogout() {
-    await supabase.auth.signOut()
-    router.push('/login')
-  }
+  await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' })
+  router.push('/login')
+}
 
   if (loading) return (
     <div style={{
